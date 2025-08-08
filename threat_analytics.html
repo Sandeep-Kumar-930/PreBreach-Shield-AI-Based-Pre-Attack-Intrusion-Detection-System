@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Threat Analytics{% endblock %}
+{% block page_title %}Threat Analytics{% endblock %}
+
+{% block content %}
+    <div class="analytics-summary-grid">
+        <div class="card analytics-count-card">
+            <div class="icon">🤖</div>
+            <h3>AI Predicted Threats Today</h3>
+            <p id="aiThreatsToday">0</p>
+        </div>
+        <div class="card analytics-count-card high-severity">
+            <div class="icon">⚠️</div>
+            <h3>Critical Severity Threats</h3>
+            <p id="criticalThreats">0</p>
+        </div>
+        <div class="card analytics-count-card total-threats">
+            <div class="icon">📈</div>
+            <h3>Total Threats This Week</h3>
+            <p id="totalThreatsWeek">0</p>
+        </div>
+        <div class="card analytics-count-card suspicious-behavior">
+            <div class="icon">📊</div>
+            <h3>Sudden Rise in Suspicious Behavior</h3>
+            <p id="suddenRise">No</p>
+        </div>
+    </div>
+
+    <div class="analytics-charts-grid">
+        <div class="card">
+            <h3>Detection Trend Over Time</h3>
+            <canvas id="detectionTrendChart"></canvas>
+        </div>
+        <div class="card">
+            <h3>Top Threat Types</h3>
+            <canvas id="topThreatTypesChart"></canvas>
+        </div>
+    </div>
+
+    <div class="analytics-recent-threats-grid">
+        <div class="card recent-threats-table">
+            <h3>Recent Threats</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Severity</th>
+                        <th>Type</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody id="recentThreatsTableBody">
+                    <tr><td colspan="4" class="no-data-row">No recent threats.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card avg-response-speed-chart">
+            <h3>Avg Response Speed (sec)</h3>
+            <canvas id="avgResponseSpeedChart"></canvas>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Threat Analytics specific script logic will be in script.js
+</script>
+{% endblock %}

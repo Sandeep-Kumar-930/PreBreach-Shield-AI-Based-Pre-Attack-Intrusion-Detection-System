@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Activity Logs{% endblock %}
+{% block page_title %}Activity Logs{% endblock %}
+
+{% block content %}
+    <div class="logs-summary-grid">
+        <div class="card log-count-card">
+            <div class="icon">📄</div>
+            <h3>Total Log Entries</h3>
+            <p id="totalLogEntries">0</p>
+        </div>
+        <div class="card log-success-card">
+            <div class="icon">✅</div>
+            <h3>Successful Actions</h3>
+            <p id="successfulActions">0%</p>
+        </div>
+        <div class="card log-failed-card">
+            <div class="icon">❗</div>
+            <h3>Failed Actions</h3>
+            <p id="failedActions">0%</p>
+        </div>
+    </div>
+
+    <div class="card filters-section">
+        <div class="filter-group">
+            <label for="searchLogs">Search Logs</label>
+            <input type="text" id="searchLogs" placeholder="Search logs by keywords (e.g., 'login failed')">
+            <i class="icon-search"></i>
+        </div>
+        <div class="filter-group">
+            <label for="logDataFilter">Data Filter</label>
+            <select id="logDataFilter">
+                <option value="Today">Today</option>
+                <option value="Last 7 Days">Last 7 Days</option>
+                <option value="All">All</option>
+            </select>
+            <i class="icon-filter"></i>
+        </div>
+        <div class="filter-group">
+            <label for="activityTypeFilter">Activity Type</label>
+            <select id="activityTypeFilter">
+                <option value="All">All</option>
+                <option value="Login">Login</option>
+                <option value="Security Event">Security Event</option>
+                <option value="System Event">System Event</option>
+                <option value="File Access">File Access</option>
+                <option value="User Management">User Management</option>
+                <option value="Settings Update">Settings Update</option>
+                <option value="Alert Management">Alert Management</option>
+            </select>
+            <i class="icon-filter"></i>
+        </div>
+        <div class="filter-group">
+            <label for="userActorFilter">User/Actor</label>
+            <select id="userActorFilter">
+                <option value="All">All Users</option>
+                <option value="Admin">Admin</option>
+                <option value="System">System</option>
+                <option value="Guest">Guest</option>
+                <option value="User123">User123</option>
+            </select>
+            <i class="icon-filter"></i>
+        </div>
+    </div>
+
+    <div class="card recent-activity-table">
+        <h3>Recent Activity</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>User/Actor</th>
+                    <th>Activity Type</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Source IP</th>
+                </tr>
+            </thead>
+            <tbody id="activityLogsTableBody">
+                <tr><td colspan="6" class="no-data-row">No activity logs found.</td></tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button>&lt;</button>
+            <span>1</span>
+            <button>&gt;</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Activity Logs specific script logic will be in script.js
+</script>
+{% endblock %}

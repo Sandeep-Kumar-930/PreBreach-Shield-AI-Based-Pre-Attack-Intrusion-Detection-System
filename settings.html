@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}Settings Page{% endblock %}
+{% block page_title %}Settings{% endblock %}
+
+{% block content %}
+    <div class="settings-grid">
+        <div class="card settings-section">
+            <h3>Account Settings</h3>
+            <div class="setting-item">
+                <label>Full Name</label>
+                <input type="text" id="fullName" value="John" disabled>
+            </div>
+            <div class="setting-item">
+                <label>Email Address</label>
+                <input type="email" id="emailAddress" value="john@example.com" disabled>
+                <button class="btn-change-password">Change Password</button>
+            </div>
+            <div class="setting-item">
+                <label>Role</label>
+                <input type="text" id="role" value="User" disabled>
+            </div>
+        </div>
+
+        <div class="card settings-section">
+            <h3>Notification Preferences</h3>
+            <div class="setting-item switch-item">
+                <label for="emailAlerts">Email Alerts</label>
+                <label class="switch">
+                    <input type="checkbox" id="emailAlerts">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="setting-item switch-item">
+                <label for="pushNotifications">Push Notifications</label>
+                <label class="switch">
+                    <input type="checkbox" id="pushNotifications">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="setting-item switch-item">
+                <label for="weeklySecuritySummary">Weekly Security Summary</label>
+                <label class="switch">
+                    <input type="checkbox" id="weeklySecuritySummary">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="card settings-section">
+            <h3>Shield AI Settings</h3>
+            <div class="setting-item dropdown-item">
+                <label for="detectionSensitivity">Detection Sensitivity</label>
+                <select id="detectionSensitivity">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Critical">Critical</option>
+                </select>
+            </div>
+            <div class="setting-item dropdown-item">
+                <label for="aiAutoResponseLevel">AI Auto-Response Level</label>
+                <select id="aiAutoResponseLevel">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+            <div class="setting-item switch-item">
+                <label for="allowAutoBlocking">Allow Auto-Blocking</label>
+                <label class="switch">
+                    <input type="checkbox" id="allowAutoBlocking">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="setting-item switch-item">
+                <label for="showRealTimeThreatTips">Show Real-Time Threat Tips</label>
+                <label class="switch">
+                    <input type="checkbox" id="showRealTimeThreatTips">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="setting-item checkbox-item">
+                <label>
+                    <input type="checkbox" id="improveAiFeedback">
+                    Improve AI with anonymous feedback
+                </label>
+            </div>
+        </div>
+
+        <div class="card settings-section">
+            <h3>Security Controls</h3>
+            <div class="setting-item dropdown-item">
+                <label for="autoBlockLevel">Auto-Block Level</label>
+                <select id="autoBlockLevel">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+            <div class="setting-item switch-item">
+                <label for="enableGeofFiltering">Enable Geo-IP Filtering</label>
+                <label class="switch">
+                    <input type="checkbox" id="enableGeofFiltering">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="setting-item switch-item">
+                <label for="requireMfaAdminLogin">Require MFA for Admin Login</label>
+                <label class="switch">
+                    <input type="checkbox" id="requireMfaAdminLogin">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="card settings-section">
+            <h3>System Preferences</h3>
+            <div class="setting-item dropdown-item">
+                <label for="themeSelect">Theme</label>
+                <select id="themeSelect">
+                    <option value="Dark">Dark</option>
+                    <option value="Light">Light</option>
+                </select>
+            </div>
+            <div class="setting-item dropdown-item">
+                <label for="languageSelect">Language</label>
+                <select id="languageSelect">
+                    <option value="English(US)">English(US)</option>
+                    <option value="Spanish">Spanish</option>
+                </select>
+            </div>
+            <div class="setting-item dropdown-item">
+                <label for="timezoneSelect">Timezone</label>
+                <select id="timezoneSelect">
+                    <option value="UTC+5.30 (IST)">UTC+5.30 (IST)</option>
+                    <option value="UTC-5:00 (EST)">UTC-5:00 (EST)</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn btn-primary save-settings-btn" id="saveSettingsBtn">Save Settings</button>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Settings specific script logic will be in script.js
+</script>
+{% endblock %}

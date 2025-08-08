@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Page{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="dashboard-grid">
+        <div class="card system-status-card">
+            <h3>System Status</h3>
+            <p id="systemStatus" class="status-safe">Safe</p>
+            <p class="status-message" id="systemStatusMessage">No active pre-attack threats detected</p>
+        </div>
+
+        <div class="card chart-card">
+            <h3>Threats Detected</h3>
+            <canvas id="threatsDetectedChart"></canvas>
+        </div>
+
+        <div class="card active-devices-card">
+            <h3>Active Devices</h3>
+            <ul id="activeDevicesList">
+                <li>Desktop-AI82C3</li>
+                <li>Server-01</li>
+                <li>Laptop-12345</li>
+            </ul>
+        </div>
+
+        <div class="card recent-alerts-card">
+            <h3>Recent Alerts</h3>
+            <div id="recentAlertsList">
+                <p>No recent alerts.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Dashboard specific script logic will be in script.js, this block just ensures it's loaded.
+    // Chart.js initialization logic will be handled by script.js after fetching data.
+</script>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Alerts Page (Alerts and Incident Triage){% endblock %}
+{% block page_title %}Alerts and Incident Triage{% endblock %}
+
+{% block content %}
+    <div class="alerts-summary-grid">
+        <div class="card alerts-count-card">
+            <h3>New Alerts</h3>
+            <p id="newAlertsCount">0</p>
+        </div>
+        <div class="card high-severity-card">
+            <h3>High Severity</h3>
+            <p id="highSeverityCount">0</p>
+        </div>
+        <div class="card block-threats-card">
+            <h3>Block Threats</h3>
+            <p id="blockThreatsCount">0</p>
+        </div>
+    </div>
+
+    <div class="card filters-section">
+        <div class="filter-group">
+            <label for="searchAlerts">Search Alerts</label>
+            <input type="text" id="searchAlerts" placeholder="Search alerts by keyword (e.g., 'SQL Injection')">
+            <i class="icon-search"></i>
+        </div>
+        <div class="filter-group">
+            <label for="dataFilter">Data Filter</label>
+            <select id="dataFilter">
+                <option value="Today">Today</option>
+                <option value="Last 7 Days">Last 7 Days</option>
+                <option value="All">All</option>
+            </select>
+            <i class="icon-filter"></i>
+        </div>
+        <div class="filter-group">
+            <label>Auto Refresh</label>
+            <label class="switch">
+                <input type="checkbox" id="autoRefreshToggle" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="card severity-filter-section">
+        <label>Severity Filter</label>
+        <div class="severity-buttons">
+            <button class="severity-btn active" data-severity="All">All</button>
+            <button class="severity-btn" data-severity="Critical">Critical</button>
+            <button class="severity-btn" data-severity="High">High</button>
+            <button class="severity-btn" data-severity="Medium">Medium</button>
+            <button class="severity-btn" data-severity="Low">Low</button>
+        </div>
+    </div>
+
+    <div class="card active-alerts-table">
+        <h3>Active Alerts</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>TIME</th>
+                    <th>ALERT TYPE</th>
+                    <th>SEVERITY</th>
+                    <th>SOURCE IP</th>
+                    <th>ACTION TAKEN</th>
+                    <th>STATUS</th>
+                    <th></th> </tr>
+            </thead>
+            <tbody id="alertsTableBody">
+                <tr><td colspan="7" class="no-data-row">No active alerts found.</td></tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button>&lt;</button>
+            <span>1</span>
+            <button>&gt;</button>
+        </div>
+        <button class="view-all-btn">View All Alerts</button>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Alerts specific script logic will be in script.js
+</script>
+{% endblock %}

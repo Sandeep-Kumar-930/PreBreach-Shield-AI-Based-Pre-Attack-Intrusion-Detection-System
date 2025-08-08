@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Alert Details{% endblock %}
+{% block page_title %}Alert Details{% endblock %}
+
+{% block content %}
+    <div class="back-link">
+        <a href="{{ url_for('alerts_page') }}"><i class="icon-back"></i> Back to Alerts</a>
+    </div>
+
+    <div class="alert-header">
+        <h2 id="alertType">SQL Injection Attempt</h2>
+        <span id="alertStatusBadge" class="badge active">Active</span>
+        <span id="alertSeverityBadge" class="badge high-severity">High Severity</span>
+        <p class="alert-meta">ID <span id="alertId">#SQL-001</span> - Detected on <span id="alertDetectionTime">10 Jul 2025 - 12:43 PM IST</span></p>
+    </div>
+
+    <div class="alert-details-grid">
+        <div class="card">
+            <h3>What Shield AI Did</h3>
+            <p id="aiActionDescription">PreBreach Shield AI detected and automatically blocked a suspicious request before it could harm your system. Status: Threat Neutralized Action: Source blocked and reported</p>
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="gotItBtn">✅ Got it</button>
+                <button class="btn btn-secondary" id="reportIssueBtn">📝 Report Issue</button>
+                <button class="btn btn-info" id="getHelpBtn">❓ Get Help</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>My Notes</h3>
+            <textarea id="myNotes" rows="5" placeholder="Write investigation notes..."></textarea>
+            <button class="btn btn-success" id="saveNoteBtn">💾 Save Note</button>
+        </div>
+
+        <div class="card">
+            <h3>Activity Log (Raw Flow Data Example)</h3>
+            <pre id="activityLogContent">[2025-07-10 12:43:00] INPUT /login?id=' OR 1=1--
+[2025-07-10 12:43:05] IP Block Triggered
+[2025-07-10 12:43:05] Event recorded in SIEM ...</pre>
+            <button class="btn btn-secondary">View Full Log</button>
+        </div>
+
+        <div class="card">
+            <h3>Stay Safe from This Threat</h3>
+            <ul id="threatTips">
+                <li>Use strong passwords</li>
+                <li>Never click suspicious links</li>
+                <li>Keep your apps updated</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Alert Details specific script logic will be in script.js
+</script>
+{% endblock %}

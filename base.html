@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PreBreach Shield - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <img src="{{ url_for('static', filename='images/shield_logo.png') }}" alt="PreBreach Shield Logo" class="logo-sidebar">
+                <span class="app-name">PreBreach Shield</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('dashboard') }}" class="nav-item {% if request.path == '/' or request.path == '/dashboard' %}active{% endif %}">
+                        <i class="icon-dashboard"></i> Dashboard
+                    </a></li>
+                    <li><a href="{{ url_for('alerts_page') }}" class="nav-item {% if request.path == '/alerts' %}active{% endif %}">
+                        <i class="icon-alerts"></i> Alerts
+                    </a></li>
+                    <li><a href="{{ url_for('threat_analytics_page') }}" class="nav-item {% if request.path == '/threat_analytics' %}active{% endif %}">
+                        <i class="icon-analytics"></i> Threat Analytics
+                    </a></li>
+                    <li><a href="{{ url_for('activity_logs_page') }}" class="nav-item {% if request.path == '/activity_logs' %}active{% endif %}">
+                        <i class="icon-logs"></i> Activity Logs
+                    </a></li>
+                    <li><a href="{{ url_for('settings_page') }}" class="nav-item {% if request.path == '/settings' %}active{% endif %}">
+                        <i class="icon-settings"></i> Settings
+                    </a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="page-title">{% block page_title %}Dashboard{% endblock %}</div>
+                <div class="user-profile">
+                    <i class="icon-user"></i>
+                    <span class="username">{{ session.get('user_email', 'User') }}</span>
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+                </div>
+            </header>
+            <div class="content-area">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        // Placeholder for FontAwesome or custom SVG icons
+        // You'd typically include a FontAwesome CDN or define SVG icons in style.css
+        // For now, these are just illustrative classes
+        document.querySelectorAll('.icon-dashboard').forEach(el => el.textContent = '🏠');
+        document.querySelectorAll('.icon-alerts').forEach(el => el.textContent = '⚠️');
+        document.querySelectorAll('.icon-analytics').forEach(el => el.textContent = '📊');
+        document.querySelectorAll('.icon-logs').forEach(el => el.textContent = '📜');
+        document.querySelectorAll('.icon-settings').forEach(el => el.textContent = '⚙️');
+        document.querySelectorAll('.icon-user').forEach(el => el.textContent = '👤');
+        document.querySelectorAll('.icon-back').forEach(el => el.textContent = '⬅️');
+        document.querySelectorAll('.icon-search').forEach(el => el.textContent = '🔍');
+        document.querySelectorAll('.icon-filter').forEach(el => el.textContent = '🔽');
+        document.querySelectorAll('.icon-refresh').forEach(el => el.textContent = '🔄');
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
